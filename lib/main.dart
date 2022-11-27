@@ -50,7 +50,7 @@ class AppBarExample extends StatelessWidget {
         backgroundColor: Colors.red,
         foregroundColor: Colors.black,
       ),
-      body: const Center(child: Text("Hello world2")),
+      body: Center(child: text14_500("Hello world!!")),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _displaySnackBar(context);
@@ -66,18 +66,23 @@ class AppBarExample extends StatelessWidget {
       drawerEnableOpenDragGesture: false,
       bottomNavigationBar: BottomNavigationBar(
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.person_off_outlined),label: "Profile" ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person_off_outlined), label: "Profile"),
         ],
       ),
     ));
   }
-
-
- 
 }
 
-  _displaySnackBar(BuildContext context) {
-    const snackBar = SnackBar(content: Text("Show snackbar"));
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  }
+_displaySnackBar(BuildContext context) {
+  const snackBar = SnackBar(content: Text("Show snackbar"));
+  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+}
+
+Widget text14_500(String text, {Color color = Colors.black}) {
+  return Text(
+    text,
+    style: TextStyle(color: color, fontSize: 14.0, fontWeight: FontWeight.w500),
+  );
+}
