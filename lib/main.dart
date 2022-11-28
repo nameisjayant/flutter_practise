@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/Login.dart';
 
-void main() => runApp(const AppBarApp());
+void main() => runApp(const LoginApp());
 
 class AppBarApp extends StatelessWidget {
   const AppBarApp({super.key});
@@ -50,7 +51,11 @@ class AppBarExample extends StatelessWidget {
         backgroundColor: Colors.red,
         foregroundColor: Colors.black,
       ),
-      body: Center(child: text14_500("Hello world!!")),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [text14_500("Hello world,how are you!!"), richText()],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _displaySnackBar(context);
@@ -80,9 +85,31 @@ _displaySnackBar(BuildContext context) {
   ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }
 
-Widget text14_500(String text, {Color color = Colors.black}) {
+Widget text14_500(String text,
+    {TextAlign textAlign = TextAlign.start, Color color = Colors.black}) {
   return Text(
     text,
-    style: TextStyle(color: color, fontSize: 14.0, fontWeight: FontWeight.w500),
+    style: TextStyle(
+        color: color,
+        fontSize: 14.0,
+        fontWeight: FontWeight.w500,
+        decoration: TextDecoration.overline,
+        decorationStyle: TextDecorationStyle.dashed,
+        decorationColor: Colors.red,
+        decorationThickness: 4),
+    textAlign: textAlign,
+    maxLines: 1,
   );
+}
+
+Widget richText() {
+  return (const Text.rich(TextSpan(text: "Text Span Example", children: [
+    TextSpan(
+        text: "Terms of use ",
+        style: TextStyle(decoration: TextDecoration.underline)),
+    TextSpan(text: "and "),
+    TextSpan(
+        text: "Privacy Policy",
+        style: TextStyle(decoration: TextDecoration.underline))
+  ])));
 }
