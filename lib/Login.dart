@@ -43,11 +43,9 @@ class _LoginScreenStateWidget extends State<LoginScreenWidget> {
         commonTextField(password, "Password"),
         commonButton("Login", () {
           if (username.text == "jks" && password.text == "123") {
-            print("ddd");
             ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text("Login Successfully")));
           } else {
-             print("ddd");
             ScaffoldMessenger.of(context)
                 .showSnackBar(const SnackBar(content: Text("Login Failed")));
           }
