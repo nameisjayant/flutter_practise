@@ -7,15 +7,18 @@ class ColumnScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return (MaterialApp(
       home: Scaffold(
-          body: Container(
-        width: double.infinity,
-        color: Colors.blue,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //  crossAxisAlignment: CrossAxisAlignment.center,
+          body:
+        //   Container(
+        // color: Colors.blue,
+        // child:
+        Column(
+          mainAxisSize: MainAxisSize.max,
+          verticalDirection: VerticalDirection.down,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [box(Colors.black), box(Colors.red), box(Colors.yellow)],
         ),
-      )),
+     // )
+      ),
     ));
   }
 }
